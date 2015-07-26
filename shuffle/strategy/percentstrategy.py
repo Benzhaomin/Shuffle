@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from shuffle.strategy import Strategy
+from shuffle.strategy.strategy import Strategy
 
 # given the pot and our capital, try to last as long as possible by betting a percent of our capital
 class PercentStrategy(Strategy):

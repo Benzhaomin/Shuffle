@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from shuffle.strategy import Strategy
+from shuffle.strategy.strategy import Strategy
 
 # always bet the highest possible amount
 class AllInStrategy(Strategy):

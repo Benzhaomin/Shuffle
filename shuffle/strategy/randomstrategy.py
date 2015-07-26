@@ -3,7 +3,7 @@
 
 import random
 
-from shuffle.strategy import Strategy
+from shuffle.strategy.strategy import Strategy
 
 # return a random amount
 class RandomStrategy(Strategy):
