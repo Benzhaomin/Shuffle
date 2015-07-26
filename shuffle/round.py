@@ -50,10 +50,10 @@ class Round:
     # check if the player won and update the bet
     if (self.wins(bet)):
       bet.win(bet.amount + self.pot)
-      logger.debug("[round] player won a %s bet on a %s pot with %.2f%% chance to win", bet.amount, bet.amount + self.pot, self.odds(bet)*100)
+      logger.debug("[round] %s won a %.2f bet with %.2f%% chance to win", player, bet.amount, self.odds(bet)*100)
     else:
       bet.lose()
-      logger.debug("[round] player lost a %s bet on a %s pot with %.2f%% chance to win", bet.amount, bet.amount + self.pot, self.odds(bet)*100)
+      logger.debug("[round] %s lost a %.2f bet with %.2f%% chance to win", player, bet.amount, self.odds(bet)*100)
   
   
 

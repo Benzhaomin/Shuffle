@@ -17,7 +17,7 @@ class TestStrategy(unittest.TestCase):
     s = Strategy()
     self.assertRaises(NotImplementedError, s.bet)
   
-  # check that bet() is abstract
+  # check that the string representation is the name of the class
   def test_str(self):
     s = Strategy()
     self.assertEqual(str(s), "Strategy")

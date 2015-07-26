@@ -20,6 +20,14 @@ class TestPlayerInit(unittest.TestCase):
     self.assertEqual(p.capital, capital)
     self.assertEqual(p.bets, [])
 
+# shuffle.player.Player.__str__()
+class TestPlayerStr(unittest.TestCase):
+  
+  # check that the string representation includes the strategy
+  def test_str(self):
+    p = Player(Strategy(), 100.0)
+    self.assertEqual(str(p), "Strategy player")
+
 # shuffle.player.Player.bet()
 class TestPlayerBet(unittest.TestCase):
   

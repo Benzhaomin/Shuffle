@@ -33,15 +33,14 @@ if __name__ == "__main__":
   
   # set the game up
   g = game.Game(pot=args.pot, capital=args.capital, rounds=args.rounds)
+  print("playing a {rounds} rounds game with a {pot} pot and {capital} capital".format(rounds=g.rounds, pot=g.pot, capital=g.capital))
   
   # and play
   g.play()
   
-  print("playing a {rounds} rounds game with a {pot} pot and {capital} capital".format(rounds=g.rounds, pot=g.pot, capital=g.capital))
-  
   # output stats about the game
   for p in g.players:
-    print("{funds:.2f} funds with the {strategy} strategy".format(funds=p.funds, strategy=p.strategy))
+    print("{player} ended the game with {funds:.2f} funds".format(funds=p.funds, player=p))
 
 
 # read options

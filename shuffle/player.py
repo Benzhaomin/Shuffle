@@ -15,6 +15,10 @@ class Player:
     self.capital = capital
     self.bets = []
 
+  # returns the strategy's class name
+  def __str__(self):
+    return "{} player".format(self.strategy)
+    
   @property
   # returns the amount of capital left as a float
   def funds(self):
@@ -38,6 +42,6 @@ class Player:
     # build and store the bet for further use
     bet = Bet(amount)
     self.bets.append(bet)
-    logger.debug("[player] player placed a %s bet on a %s pot using the %s strategy", bet.amount, pot, self.strategy)
+    logger.debug("[player] %s placed a %.2f bet on a %.2f pot", self, bet.amount, pot)
     
     return bet
