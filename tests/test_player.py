@@ -46,7 +46,7 @@ class TestPlayerFunds(unittest.TestCase):
   def test_funds_no_bets(self):
     p = Player(Strategy(), 100.0)
     expected = 100.0
-    actual = p.funds()
+    actual = p.funds
     self.assertEqual(actual, expected)
   
   # check that funds are correct after a bet
@@ -55,7 +55,7 @@ class TestPlayerFunds(unittest.TestCase):
     p = Player(Strategy(), 100.0)
     p.bet(100.0).payout = 100.0
     expected = 200.0
-    actual = p.funds()
+    actual = p.funds
     self.assertEqual(actual, expected)
     
   # check that funds are correct after a few bets, one of them unpaid yet
@@ -67,7 +67,7 @@ class TestPlayerFunds(unittest.TestCase):
     p.bet(100.0).payout = -100.0
     p.bet(100.0)
     expected = 300.0
-    actual = p.funds()
+    actual = p.funds
     self.assertEqual(actual, expected)
     
   # check that funds stay at 0 even with bogus bet payouts going below 0
@@ -76,5 +76,5 @@ class TestPlayerFunds(unittest.TestCase):
     p = Player(Strategy(), 100.0)
     p.bet(100.0).payout = -400.0
     expected = 0.0
-    actual = p.funds()
+    actual = p.funds
     self.assertEqual(actual, expected)

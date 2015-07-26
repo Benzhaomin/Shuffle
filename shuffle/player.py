@@ -14,6 +14,7 @@ class Player:
     self.capital = capital
     self.bets = []
 
+  @property
   # returns the amount of capital left as a float
   def funds(self):
     # add up all payouts
@@ -25,7 +26,7 @@ class Player:
   # returns a Bet, with an amount computed by our strategy, and store it locally
   def bet(self, pot):
     # get bet size from our strategy
-    amount = self.strategy.bet(capital=self.capital, funds=self.funds(), pot=pot)
+    amount = self.strategy.bet(capital=self.capital, funds=self.funds, pot=pot)
     
     # build and store the bet for further use
     bet = Bet(amount)
