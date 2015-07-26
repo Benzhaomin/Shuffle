@@ -15,7 +15,7 @@ Simulate outcomes of a shuffle game based on betting strategy and initial capita
 - Our simulated player looks at round state (pot size, owned capital) and uses his strategy to bet
 - Round ends
 
-## Stategies
+## Strategies
 
 ### All-in
 
@@ -36,3 +36,8 @@ It's a valid choice only if you make money some other way while you play (eg. st
 
 Place random bets until you have no money left. See how you fare compared to those other clever strategies.
 
+## Usage
+
+- basic run with default settings ($1000 capital, $100 pot, 10 rounds): `python main.py`
+- track bets of a strategy: `python main.py --log DEBUG 2>&1 | grep RandomStrategy | grep '\[player\]'`
+- track rounds of a strategy: `python main.py --log DEBUG 2>&1 | grep LowestStrategy | grep '\[round\]'`

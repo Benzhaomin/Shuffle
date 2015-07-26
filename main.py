@@ -19,7 +19,7 @@ if __name__ == "__main__":
   parser.add_argument('--pot', dest='pot', type=float, default=100.0,
     help="set the pot size")
     
-  parser.add_argument('--rounds', dest='rounds', type=int, default=10.0,
+  parser.add_argument('--rounds', dest='rounds', type=int, default=10,
     help="set how many rounds to run")
   
   args = parser.parse_args()
