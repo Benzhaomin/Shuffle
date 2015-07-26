@@ -13,16 +13,17 @@ class TestBetInit(unittest.TestCase):
     expected = 100.0
     b = Bet(expected)
     self.assertEqual(b.amount, expected)
-    self.assertEqual(b.status, None)
+    self.assertEqual(b.payout, None)
 
 # shuffle.bet.Bet.win()
 class TestBetWin(unittest.TestCase):
   
-  # check that win() updates the status correctly
+  # check that win() updates the payout correctly
   def test_won(self):
+    expected = 300.0
     b = Bet(100.0)
-    b.win()
-    self.assertEqual(b.status, True)
+    b.win(expected)
+    self.assertEqual(b.payout, expected)
 
 # shuffle.bet.Bet.won()
 class TestBetWon(unittest.TestCase):
@@ -44,14 +45,15 @@ class TestBetWon(unittest.TestCase):
     b.status = False
     self.assertEqual(b.won(), False)
 
-# shuffle.bet.Bet.win()
+# shuffle.bet.Bet.lose()
 class TestBetLose(unittest.TestCase):
   
   # check that lose() updates the status correctly
   def test_lose(self):
+    expected = -100.0
     b = Bet(100.0)
     b.lose()
-    self.assertEqual(b.status, False)
+    self.assertEqual(b.payout, expected)
 
 # shuffle.bet.Bet.lost()
 class TestBetLost(unittest.TestCase):
@@ -64,32 +66,31 @@ class TestBetLost(unittest.TestCase):
   # check that lost() is false after a loss
   def test_lost_lost(self):
     b = Bet(100.0)
-    b.status = False
+    b.payout = -100.0
     self.assertEqual(b.lost(), False)
   
   # check that lost() is true after a loss
   def test_lost_lost(self):
     b = Bet(100.0)
-    b.status = False
+    b.payout = -100.0
     self.assertEqual(b.lost(), True)
 
-# shuffle.bet.Bet.done()
-class TestBetDone(unittest.TestCase):
+# shuffle.bet.Bet.paid()
+class TestBetPaid(unittest.TestCase):
   
-  # check that done() is false by default
+  # check that paid() is false by default
   def test_done_not_done(self):
     b = Bet(100.0)
-    self.assertEqual(b.done(), False)
+    self.assertEqual(b.paid(), False)
   
-  # check that done() is true after a win
+  # check that paid() is true after a win
   def test_done_won(self):
     b = Bet(100.0)
-    b.status = True
-    self.assertEqual(b.done(), True)
+    b.payout = 100.0
+    self.assertEqual(b.paid(), True)
     
-  # check that done() is true after a loss
+  # check that paid() is true after a loss
   def test_done_lost(self):
     b = Bet(100.0)
-    b.status = False
-    self.assertEqual(b.done(), True)
-
+    b.payout = -100.0
+    self.assertEqual(b.paid(), True)

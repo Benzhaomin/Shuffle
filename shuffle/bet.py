@@ -9,24 +9,24 @@ class Bet:
     super().__init__()
     
     self.amount = amount
-    self.status = None
+    self.payout = None
   
   # records a win
-  def win(self):
-    self.status = True
+  def win(self, amount):
+    self.payout = amount
   
   # returns true if that bet won
   def won(self):
-    return self.status == True
-  
+    return self.payout is not None and self.payout > 0
+      
   # records a loss
   def lose(self):
-    self.status = False
+    self.payout = -self.amount
   
   # returns true if that bet lost
   def lost(self):
-    return self.status == False
+    return self.payout is not None and self.payout <= 0
   
   # returns true if that bet got a result
-  def done(self):
+  def paid(self):
     return self.won() or self.lost()
