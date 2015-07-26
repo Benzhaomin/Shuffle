@@ -11,7 +11,7 @@ from shuffle.strategy.strategy import Strategy
 # shuffle.player.Player.__init__()
 class TestPlayerInit(unittest.TestCase):
   
-  # check that init 
+  # check that init set our attributes correctly
   def test_init(self):
     capital = 100.0
     s = Strategy()
