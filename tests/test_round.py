@@ -17,7 +17,7 @@ class TestRoundInit(unittest.TestCase):
     r = Round(100.0)
     self.assertEqual(r.pot, 100)
 
-  # check that the pot setter raise an exception on negative values
+  # check that the pot init raises an exception on negative values
   def test_init_negative(self):
     self.assertRaises(Exception, Round, -100.0)
   
@@ -34,7 +34,8 @@ class TestRoundPotSetter(unittest.TestCase):
   
   # check that the pot setter raises an exception
   def test_pot_set_negative(self):
-    self.assertRaises(Exception, Round.pot, 100.0)
+    r = Round(100.0)
+    self.assertRaises(Exception, r.pot, 100.0)
 
 # shuffle.round.Round.odds()
 class TestRoundOdds(unittest.TestCase):
@@ -44,14 +45,6 @@ class TestRoundOdds(unittest.TestCase):
     r = Round(100.0)
     b = Bet(100.0)
     expected = 0.5
-    actual = r.odds(b)
-    self.assertEqual(expected, actual)
-  
-  # check that odds are computed even for bogus bets
-  def test_odds_bogus(self):
-    r = Round(100.0)
-    b = Bet(-1000.0)
-    expected = 0.0
     actual = r.odds(b)
     self.assertEqual(expected, actual)
   

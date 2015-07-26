@@ -8,7 +8,11 @@ class Bet:
   def __init__(self, amount):
     super().__init__()
     
-    self.amount = amount
+    # careful about negative amounts
+    if amount < 0:
+      raise Exception("A bet can't be less than 0")
+    self._amount = amount
+    
     self.payout = None
   
   # use self.amount and self.payout for identity
@@ -17,6 +21,14 @@ class Bet:
   
   def __ne__(self, other):
     return not self == other
+  
+  @property
+  def amount(self):
+    return self._amount
+    
+  @amount.setter
+  def pot(self, value):
+    raise Exception("A bet's amount can't be changed")
   
   # loads details about the video in a dict
   def load(self):

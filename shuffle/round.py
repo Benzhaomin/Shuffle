@@ -20,8 +20,6 @@ class Round:
   @pot.setter
   def pot(self, value):
     raise Exception("A round's pot can't be changed")
-    
-    self._pot = value
   
   # compute odds of winning in a [0..1] range
   def odds(self, bet):

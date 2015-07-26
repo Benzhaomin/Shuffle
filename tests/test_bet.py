@@ -15,6 +15,26 @@ class TestBetInit(unittest.TestCase):
     self.assertEqual(b.amount, expected)
     self.assertEqual(b.payout, None)
 
+  # check that the bet init raises an exception on negative values
+  def test_init_negative(self):
+    self.assertRaises(Exception, Bet, -100.0)
+  
+# shuffle.bet.Bet.amount()
+class TestBetAmountGetter(unittest.TestCase):
+  
+  # check that the amount getter return the right value
+  def test_bet_get(self):
+    b = Bet(100.0)
+    self.assertEqual(b.amount, 100)
+
+# shuffle.bet.Bet.amount(value)
+class TestBetPotSetter(unittest.TestCase):
+  
+  # check that the amount setter raises an exception
+  def test_bet_set_negative(self):
+    b = Bet(100.0)
+    self.assertRaises(Exception, b.amount, 100)
+
 # shuffle.bet.Bet.__eq__()
 class TestBetEquality(unittest.TestCase):
   
