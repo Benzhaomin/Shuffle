@@ -53,8 +53,8 @@ class TestPlayerFunds(unittest.TestCase):
   @patch('shuffle.strategy.strategy.Strategy.bet', return_value=100.0)
   def test_funds_one_bet(self, foo):
     p = Player(Strategy(), 100.0)
-    p.bet(100.0).payout = 100.0
-    expected = 200.0
+    p.bet(100.0).payout = 200.0 # 100 + 100
+    expected = 200.0            # = 200
     actual = p.funds
     self.assertEqual(actual, expected)
     
@@ -62,11 +62,11 @@ class TestPlayerFunds(unittest.TestCase):
   @patch('shuffle.strategy.strategy.Strategy.bet', return_value=100.0)
   def test_funds_few_bets(self, foo):
     p = Player(Strategy(), 100.0)
-    p.bet(100.0).payout = 400.0
-    p.bet(100.0).payout = -100.0
-    p.bet(100.0).payout = -100.0
-    p.bet(100.0)
-    expected = 300.0
+    p.bet(100.0).payout = 400.0   # 100 + 300
+    p.bet(100.0).payout = -100.0  # -100
+    p.bet(100.0).payout = -100.0  # -100
+    p.bet(100.0)                  # -100
+    expected = 100.0              # = 100
     actual = p.funds
     self.assertEqual(actual, expected)
     

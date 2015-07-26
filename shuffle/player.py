@@ -18,8 +18,14 @@ class Player:
   @property
   # returns the amount of capital left as a float
   def funds(self):
-    # add up all payouts
-    diff = sum([bet.payout for bet in self.bets if bet.paid()])
+    # add up money we won (we put x, we get y back, we won y-x)
+    diff = sum([bet.payout - bet.amount for bet in self.bets if bet.won()])
+    
+    # add up all losses (payouts are negative)
+    diff += sum([bet.payout for bet in self.bets if bet.lost()])
+    
+    # add up all bets placed but not paid yet
+    diff += sum([-bet.amount for bet in self.bets if not bet.paid()])
     
     # careful about bogus bets payout
     return max(self.capital + diff, 0.0)
@@ -32,6 +38,6 @@ class Player:
     # build and store the bet for further use
     bet = Bet(amount)
     self.bets.append(bet)
-    logger.debug("[player] player placed a %s bet on a %s pot using the %s strategy", bet.amount, bet.amount + pot, self.strategy)
+    logger.debug("[player] player placed a %s bet on a %s pot using the %s strategy", bet.amount, pot, self.strategy)
     
     return bet
