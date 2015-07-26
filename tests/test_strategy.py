@@ -16,7 +16,12 @@ class TestStrategy(unittest.TestCase):
   def test_not_implemented_exception(self):
     s = Strategy()
     self.assertRaises(NotImplementedError, s.bet)
-
+  
+  # check that bet() is abstract
+  def test_str(self):
+    s = Strategy()
+    self.assertEqual(str(s), "Strategy")
+    
 # shuffle.strategy.loweststrategy.LowestStrategy
 class TestAllInStrategy(unittest.TestCase):
   
