@@ -8,5 +8,5 @@ class Strategy:
 
   # returns the bet amount as a float
   # bets must always be >= 0 and <= funds
-  def bet(capital=0.0,funds=0.0,pot=0.0):
+  def bet(self, capital=0.0,funds=0.0,pot=0.0):
     raise NotImplementedError()

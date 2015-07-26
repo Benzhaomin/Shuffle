@@ -12,7 +12,7 @@ class RandomStrategy(Strategy):
     super().__init__()
 
   # returns the bet amount as a float
-  def bet(capital=0.0,funds=0.0,pot=0.0):
+  def bet(self, capital=0.0,funds=0.0,pot=0.0):
     bet = funds * random.random()
     
     # careful about low and negative funds
