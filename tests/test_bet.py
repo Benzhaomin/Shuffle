@@ -15,6 +15,78 @@ class TestBetInit(unittest.TestCase):
     self.assertEqual(b.amount, expected)
     self.assertEqual(b.payout, None)
 
+# shuffle.bet.Bet.__eq__()
+class TestBetEquality(unittest.TestCase):
+  
+  # check that a bet object is equal to itself
+  def test_bet_eq_is_same(self):
+    v = Bet(100.0)
+    self.assertEqual(v, v)
+  
+  # check that two bet objects are equal
+  def test_bet_eq_amount_is_equal(self):
+    v1 = Bet(100.0)
+    v2 = Bet(100.0)
+    self.assertEqual(v1, v2)
+  
+  # check that two different bet objects are not equal
+  def test_bet_eq_amount_is_different(self):
+    v1 = Bet(200.0)
+    v2 = Bet(100.0)
+    self.assertFalse(v1 == v2)
+  
+  # check that two bet objects are equal
+  def test_bet_eq_payout_is_equal(self):
+    v1 = Bet(100.0)
+    v1.payout = 100.0
+    v2 = Bet(100.0)
+    v2.payout = 100.0
+    self.assertEqual(v1, v2)
+  
+  # check that two different bet objects are not equal
+  def test_bet_eq_payout_is_different(self):
+    v1 = Bet(100.0)
+    v1.payout = 100.0
+    v2 = Bet(100.0)
+    v2.payout = 200.0
+    self.assertFalse(v1 == v2)
+
+# shuffle.bet.Bet.__ne__()
+class TestBetNotEquality(unittest.TestCase):
+  
+  # check that a bet object is equal to itself
+  def test_bet_ne_is_same(self):
+    v = Bet(100.0)
+    self.assertFalse(v != v)
+  
+  # check that two bet objects are equal
+  def test_bet_ne_amount_is_equal(self):
+    v1 = Bet(100.0)
+    v2 = Bet(100.0)
+    self.assertFalse(v1 != v2)
+  
+  # check that two different bet objects are not equal
+  def test_bet_ne_amount_is_different(self):
+    v1 = Bet(100.0)
+    v2 = Bet(200.0)
+    self.assertTrue(v1 != v2)
+  
+  # check that two bet objects are equal
+  def test_bet_ne_payout_is_equal(self):
+    v1 = Bet(100.0)
+    v1.payout = 100.0
+    v2 = Bet(100.0)
+    v2.payout = 100.0
+    self.assertFalse(v1 != v2)
+  
+  # check that two different bet objects are not equal
+  def test_bet_ne_payout_is_different(self):
+    v1 = Bet(100.0)
+    v1.payout = 100.0
+    v2 = Bet(100.0)
+    v2.payout = 200.0
+    self.assertTrue(v1 != v2)
+
 # shuffle.bet.Bet.win()
 class TestBetWin(unittest.TestCase):
   

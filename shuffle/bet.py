@@ -11,6 +11,18 @@ class Bet:
     self.amount = amount
     self.payout = None
   
+  # use self.amount and self.payout for identity
+  def __eq__(self, other):
+    return isinstance(other, Bet) and self.amount == other.amount and self.payout == other.payout
+  
+  def __ne__(self, other):
+    return not self == other
+  
+  # loads details about the video in a dict
+  def load(self):
+    if self.json:
+      return self
+  
   # records a win
   def win(self, amount):
     self.payout = amount
