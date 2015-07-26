@@ -11,7 +11,7 @@ Simulate outcomes of a shuffle game based on betting strategy and initial capita
 ## Gameplay
 
 - Round starts
-- Game engine places random bets, increasing the pot
+- Game engine sets a pot size
 - Our simulated player looks at round state (pot size, owned capital) and uses his strategy to bet
 - Round ends
 
