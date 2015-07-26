@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import random
+import logging
+logger = logging.getLogger('shuffle.logger')
 
 class Round:
   
@@ -33,6 +35,7 @@ class Round:
   
   # get a winning number in a [0..1] range
   def winner(self):
+    # TODO: record the winner the first time and don't change it afterwards
     return random.random()
   
   # check if the bet won
@@ -47,8 +50,10 @@ class Round:
     # check if the player won and update the bet
     if (self.wins(bet)):
       bet.win(bet.amount + self.pot)
+      logger.debug("[round] player won a %s bet on a %s pot with %.2f%% chance to win", bet.amount, bet.amount + self.pot, self.odds(bet)*100)
     else:
       bet.lose()
+      logger.debug("[round] player lost a %s bet on a %s pot with %.2f%% chance to win", bet.amount, bet.amount + self.pot, self.odds(bet)*100)
   
   
 

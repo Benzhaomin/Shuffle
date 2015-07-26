@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import logging
+logger = logging.getLogger('shuffle.logger')
+
 from shuffle.strategy.strategy import Strategy
 
 # always bet the highest possible amount

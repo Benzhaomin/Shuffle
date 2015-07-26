@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-#OutOfFundsException
+import logging
+logger = logging.getLogger('shuffle.logger')
 
 from shuffle.bet import Bet
 
@@ -31,5 +32,6 @@ class Player:
     # build and store the bet for further use
     bet = Bet(amount)
     self.bets.append(bet)
+    logger.debug("[player] player placed a %s bet on a %s pot using the %s strategy", bet.amount, bet.amount + pot, self.strategy)
     
     return bet

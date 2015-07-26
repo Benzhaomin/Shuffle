@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import logging
+logger = logging.getLogger('shuffle.logger')
+
 from shuffle.strategy.strategy import Strategy
 
 class Bet:
@@ -29,11 +32,6 @@ class Bet:
   @amount.setter
   def pot(self, value):
     raise Exception("A bet's amount can't be changed")
-  
-  # loads details about the video in a dict
-  def load(self):
-    if self.json:
-      return self
   
   # records a win
   def win(self, amount):

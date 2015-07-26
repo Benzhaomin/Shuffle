@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
+logger = logging.getLogger('shuffle.logger')
+
 from shuffle.player import Player
 from shuffle.round import Round
 from shuffle.strategy.allinstrategy import AllInStrategy
@@ -42,7 +45,10 @@ class Game:
     self.players = self._get_player_list()
     rounds = [Round(self.pot) for n in range(self.rounds)]
     
+    logger.debug("[game] playing a %s rounds game for %s players", self.rounds, len(self.players))
+    
     for r in rounds:
       for p in self.players:
         r.run(p)
-    
+  
+  

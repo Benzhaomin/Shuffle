@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import random
+import logging
+logger = logging.getLogger('shuffle.logger')
 
 from shuffle.strategy.strategy import Strategy
 

@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import logging
+logger = logging.getLogger('shuffle.logger')
+
 from shuffle.strategy.strategy import Strategy
 
 # given the pot and our capital, try to last as long as possible by betting a percent of our capital
