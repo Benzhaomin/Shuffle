@@ -1,6 +1,6 @@
 # Shuffle
 
-Simulate outcomes of a shuffle game based on betting strategy and initial capital
+Simulate outcomes of a shuffle game based on betting strategy and initial capital.
 
 ## Rules
 
@@ -41,3 +41,20 @@ Place random bets until you have no money left. See how you fare compared to tho
 - basic run with default settings ($1000 capital, $100 pot, 10 rounds): `python main.py`
 - track bets of a strategy: `python main.py --log DEBUG 2>&1 | grep RandomStrategy | grep '\[player\]'`
 - track rounds of a strategy: `python main.py --log DEBUG 2>&1 | grep LowestStrategy | grep '\[round\]'`
+
+# License
+
+> Shuffle, a simple Python 3 program to simulate outcomes of a shuffle game.
+> Copyright (C) 2015 Benjamin Maisonnas
+
+> This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 3 as published by
+the Free Software Foundation.
+
+> This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+> You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/gpl-3.0.en.html>.
